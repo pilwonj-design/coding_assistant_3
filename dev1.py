@@ -6,3 +6,6 @@ def dev2():
 
 def dev3():
     print('dev1')
+
+def dev4():
+    print('dev1')
