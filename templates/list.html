@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock List</h1>
+    <a href="{{ url_for('add') }}">Add New Stock</a>
+    <br><br>
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+
+    <script>
+        // Add Edit and Delete links to the table
+        document.addEventListener('DOMContentLoaded', function() {
+            const table = document.querySelector('.data');
+            if (table) {
+                const headers = table.querySelectorAll('th');
+                const newHeader = document.createElement('th');
+                newHeader.textContent = 'Actions';
+                table.querySelector('thead tr').appendChild(newHeader);
+
+                const rows = table.querySelectorAll('tbody tr');
+                rows.forEach((row, index) => {
+                    const cell = row.insertCell(-1);
+                    const editLink = document.createElement('a');
+                    editLink.href = `/edit/${index}`;
+                    editLink.textContent = 'Edit';
+                    const deleteLink = document.createElement('a');
+                    deleteLink.href = `/delete/${index}`;
+                    deleteLink.textContent = 'Delete';
+                    deleteLink.style.marginLeft = '10px';
+
+                    cell.appendChild(editLink);
+                    cell.appendChild(deleteLink);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

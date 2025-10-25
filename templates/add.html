@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Stock</title>
+</head>
+<body>
+    <h1>Add New Stock</h1>
+    <form method="post">
+        <label for="Ticker">Ticker:</label><br>
+        <input type="text" id="Ticker" name="Ticker"><br><br>
+        
+        <label for="Company">Company:</label><br>
+        <input type="text" id="Company" name="Company"><br><br>
+        
+        <label for="Price">Price:</label><br>
+        <input type="text" id="Price" name="Price"><br><br>
+        
+        <label for="Market Cap (B)">Market Cap (B):</label><br>
+        <input type="text" id="Market Cap (B)" name="Market Cap (B)"><br><br>
+        
+        <label for="P/E Ratio">P/E Ratio:</label><br>
+        <input type="text" id="P/E Ratio" name="P/E Ratio"><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">Back to List</a>
+</body>
+</html>
